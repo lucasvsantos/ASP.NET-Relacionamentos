@@ -1,0 +1,32 @@
+﻿@model Fiap.Web.MVC.Models.Imovel
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar</h2>
+@Helper.Mensagem(TempData["msg"])
+
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(i => i.Endereco)
+        @Html.TextBoxFor(i => i.Endereco, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(i => i.Valor)
+        @Html.TextBoxFor(i => i.Valor, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(i => i.Categoria)
+        @Html.DropDownListFor(i => i.CategoriaId, ViewBag.categorias as SelectList)
+    </div>
+    <div>
+        @Html.LabelFor(i => i.Escritura.Proprietario)
+        @Html.TextBoxFor(i => i.Escritura.Proprietario, new { @class = "form-control" } )
+    </div>
+
+    @Helper.Botao("Cadastrar")
+}
+

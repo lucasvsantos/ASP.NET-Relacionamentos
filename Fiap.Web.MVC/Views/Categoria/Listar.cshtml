@@ -1,0 +1,42 @@
+﻿@model IList<Fiap.Web.MVC.Models.Imovel>
+
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listagem de categorias</h2>
+@Html.BeginForm("Buscar", "Categoria", FormMethod.Get)
+{
+
+<div class="form-group">
+    @Html.DropDownList("CategoriaId", ViewBag.categorias as SelectList)
+</div>
+
+@Helper.Botao("Buscar")
+}
+
+@if (ViewBag.imoveis != null)
+{
+    <table class="table table-striped">
+        <tr>
+            <th>Código</th>
+            <th>Endereco</th>
+            <th>Valor</th>
+            <th>Numero Escritura</th>
+            <th>Dono Escritura</th>
+            <th>Categoria</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ImovelId</td>
+                <td>@item.Endereco</td>
+                <td>@item.Valor</td>
+                <td>@item.Escritura.NumeroCartorio</td>
+                <td>@item.Escritura.Proprietario</td>
+                <td>@item.Categoria.Nome</td>
+            </tr>
+        }
+    </table>
+}
+

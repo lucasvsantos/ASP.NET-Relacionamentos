@@ -164,6 +164,7 @@
     <Compile Include="Models\Corretor.cs" />
     <Compile Include="Models\Escritura.cs" />
     <Compile Include="Models\Imovel.cs" />
+    <Compile Include="Models\TipoContrato.cs" />
     <Compile Include="Persistencia\ImobiliariaContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -207,6 +208,7 @@
     <Content Include="Views\Categoria\Cadastrar.cshtml" />
     <Content Include="Views\Imovel\Cadastrar.cshtml" />
     <Content Include="Views\Imovel\Listar.cshtml" />
+    <Content Include="Views\Categoria\Listar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -25,5 +25,13 @@ namespace Fiap.Web.MVC.Controllers
             TempData["msg"] = "Categoria cadastrada!!!!!!!!";
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Listar()
+        {
+            var retornoCategorias = _context.Categorias.ToList();
+            ViewBag.categorias = new SelectList(retornoCategorias, "CategoriaId", "Nome");
+            return View("Listar");
+        }
     }
 }

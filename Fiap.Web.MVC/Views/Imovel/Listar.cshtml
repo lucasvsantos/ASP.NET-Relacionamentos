@@ -1,7 +1,31 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Listar";
 }
 
 <h2>Listar</h2>
 
+@using (Html.BeginForm("Buscar", "Imovel", FormMethod.Get, new { @class = "form-inline"}))
+{
+    @Html.DropDownList("codigo", ViewBag.categorias as SelectList, "Selecione", new { @class = "form-control" })
+    @Helper.Botao("Buscar")
+}
+
+<table class="table table-striped" style="margin-top:20px">
+    <tr>
+        <th>Código</th>
+        <th>Endereco</th>
+        <th>Valor</th>
+        <th>Categoria</th>
+        <th>Tipo contrato</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ImovelId</td>
+            <td>@item.Endereco</td>
+            <td>@item.Valor</td>
+            <td>@item.Categoria.Nome</td>
+            <td>@item.Contrato</td>
+        </tr>
+    }
+</table>
